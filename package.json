@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon ."
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,13 @@
   "homepage": "https://github.com/aukai84/express-gallery#readme",
   "dependencies": {
     "body-parser": "^1.16.1",
+    "browser-sync": "^2.18.7",
     "express": "^4.14.1",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "pg": "^6.1.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.2"
   }
 }
