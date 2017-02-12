@@ -1,5 +1,8 @@
 {{#each photo}}
 <form action="/gallery/{{id}}?_method=PUT" method="POST">
-
+Current author: <br><input type="text" name="author" value="{{author}}"><br>
+Current link: <br><input type="text" name="link" value="{{link}}"><br>
+Current description: <br><input type="text" name="description" value="{{description}}"><br>
+<br><input type="submit" value="Update">
 </form>
 {{/each}}

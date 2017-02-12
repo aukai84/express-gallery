@@ -5,6 +5,7 @@ let db = require('../models');
 let Photo = db.Photo;
 
 router.post('/', (req, res) => {
+    console.log(req.body);
     Photo.create({
         author: req.body.author,
         link: req.body.link,
