@@ -22,7 +22,8 @@ let Photo = db.Photo;
 app.get('/', (req, res) => {
     Photo.findAll()
     .then((photos) => {
-        res.json(photos);
+        console.log(photos);
+        res.render('index', {photos: photos});
     });
 });
 
