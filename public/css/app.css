@@ -2,7 +2,8 @@ body {
   background-color: white; }
 
 #top-logo {
+  border-top: 100px;
   font-family: sans-serif;
-  font-size: 20px;
+  font-size: 100px;
   font-style: bold;
   color: gray; }
