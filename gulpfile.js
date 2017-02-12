@@ -9,7 +9,6 @@ gulp.task('connect', function(){
   });
 });
 
-// keeps gulp from crashing for scss errors
 gulp.task('scss', function () {
   return gulp.src('./scss/*.scss')
       .pipe(scss({ errLogToConsole: true }))
