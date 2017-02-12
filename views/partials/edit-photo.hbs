@@ -11,7 +11,7 @@ Current link: <br><input type="text" name="link" placeholder="{{photo.link}}">
 <input type="submit" value="Update">
 </form>
 <form action="/gallery/{{photo.id}}?_method=PUT" method="POST">
-<input type="hidden" name="author" name="{{photo.author}}">
+<input type="hidden" name="author" value="{{photo.author}}">
 <input type="hidden" name="link" value="{{photo.link}}">
 Current description: <br><input type="text" name="description" placeholder="{{photo.description}}">
 <input type="submit" value="Update">
