@@ -36,7 +36,7 @@ app.use(function (req, res, next) {
 app.use('/gallery', gallery);
 
 app.get('/', (req, res) => {
-    Photo.findAll()
+    Photo.findAll({order: "id"})
     .then((photos) => {
         res.render('index', {photos: photos});
     });

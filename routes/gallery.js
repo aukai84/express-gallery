@@ -27,9 +27,6 @@ router.put('/:id', (req, res) => {
     })
     .then(result => {
         res.redirect(303, `/gallery/${req.params.id}`);
-    })
-    .catch(error => {
-
     });
 });
 
@@ -40,7 +37,7 @@ router.delete('/:id', (req, res) => {
         }
     })
     .then(result => {
-        res.json("success");
+        res.redirect(303, '/');
     });
 });
 
@@ -49,14 +46,15 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    Photo.findById(`${req.params.id}`)
+    Photo.findById(req.params.id)
     .then((photo) => {
+        console.log(photo.id);
         res.render('./partials/photo', {photo});
     });
 });
 
 router.get('/:id/edit', (req, res) => {
-    Photo.findById(`${req.params.id}`)
+    Photo.findById(req.params.id)
     .then((photo) => {
         res.render('./partials/edit-photo', {photo});
     });
