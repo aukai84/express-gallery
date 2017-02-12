@@ -15,6 +15,17 @@ router.post('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+    Photo.findAll({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then((photo) => {
+        res.json(photo);
+    });
+});
+
 router.delete('/:id', (req, res) => {
     Photo.destroy({
         where: {
