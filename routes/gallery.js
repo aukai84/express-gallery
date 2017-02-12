@@ -16,7 +16,6 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    console.log("req params", req.params.id);
     Photo.update({
         author: req.body.author,
          link: req.body.link,
@@ -49,7 +48,6 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
     Photo.findById(req.params.id)
     .then((photo) => {
-        console.log(photo.id);
         res.render('./partials/photo', {photo});
     });
 });
