@@ -16,8 +16,9 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
+    console.log("req params", req.params.id);
     Photo.update({
-        author: req.body.title,
+        author: req.body.author,
          link: req.body.link,
          description: req.body.description
         },{
