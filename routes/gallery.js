@@ -15,7 +15,17 @@ router.post('/', (req, res) => {
     });
 });
 
-
+router.delete('/:id', (req, res) => {
+    Photo.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(result => {
+        console.log(result);
+        res.json("success");
+    });
+});
 
 
 module.exports = router;
