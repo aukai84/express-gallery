@@ -5,7 +5,6 @@ let db = require('../models');
 let Photo = db.Photo;
 
 router.post('/', (req, res) => {
-    console.log(req.body);
     Photo.create({
         author: req.body.author,
         link: req.body.link,
@@ -28,6 +27,9 @@ router.put('/:id', (req, res) => {
     })
     .then(result => {
         res.redirect(303, `/gallery/${req.params.id}`);
+    })
+    .catch(error => {
+
     });
 });
 
@@ -47,24 +49,16 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    Photo.findAll({
-        where: {
-            id: req.params.id
-        }
-    })
+    Photo.findById(`${req.params.id}`)
     .then((photo) => {
         res.render('./partials/photo', {photo});
     });
 });
 
 router.get('/:id/edit', (req, res) => {
-    Photo.findAll({
-        where: {
-            id: req.params.id
-        }
-    })
+    Photo.findById(`${req.params.id}`)
     .then((photo) => {
-        res.render('./partials/edit-photo', {photo})
+        res.render('./partials/edit-photo', {photo});
     });
 });
 
