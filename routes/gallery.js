@@ -16,15 +16,40 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
+    console.log("new body", req.body)
     Photo.update({
         author: req.body.author,
          link: req.body.link,
          description: req.body.description
-        },{
-        where: {
+        },{ fiels: ['author'],
+            where: {
             id: req.params.id
             }
-    })
+        })
+    .then(result => {
+        res.redirect(303, `/gallery/${req.params.id}`);
+    });
+    Photo.update({
+        author: req.body.author,
+         link: req.body.link,
+         description: req.body.description
+        },{ fiels: ['link'],
+            where: {
+            id: req.params.id
+            }
+        })
+    .then(result => {
+        res.redirect(303, `/gallery/${req.params.id}`);
+    });
+    Photo.update({
+        author: req.body.author,
+         link: req.body.link,
+         description: req.body.description
+        },{ fiels: ['description'],
+            where: {
+            id: req.params.id
+            }
+        })
     .then(result => {
         res.redirect(303, `/gallery/${req.params.id}`);
     });
