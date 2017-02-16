@@ -1,4 +1,5 @@
-<img src="{{photo.link}}">
+<a href="/gallery/{{{photo.id}}}"><img src="{{photo.link}}">
+</a>
 <form action="/gallery/{{photo.id}}?_method=PUT" method="POST">
 Current author: <br><input type="text" name="author" placeholder="{{photo.author}}">
 <input type="hidden" name="link" value="{{photo.link}}">
