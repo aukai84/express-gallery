@@ -20,7 +20,8 @@ router.put('/:id', (req, res) => {
     Photo.update({
         author: req.body.author,
          link: req.body.link,
-         description: req.body.description
+         description: req.body.description,
+         shortLink: req.body.link.replace(/^https?:\/\//,'')
         },{
             where: {
             id: req.params.id
