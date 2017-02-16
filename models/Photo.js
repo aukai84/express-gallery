@@ -3,7 +3,6 @@ module.exports = function(sequelize, DataTypes){
         author: {
             type: DataTypes.STRING,
             validate: {
-                notNull: true,
                 notEmpty: {
                     msg: "Each post must have an author..."
                 }
@@ -12,7 +11,6 @@ module.exports = function(sequelize, DataTypes){
         link: {
             type: DataTypes.STRING(1234),
             validate: {
-                notNull: true,
                 notEmpty: {
                     msg: "Each post must have a link..."
                 },
@@ -24,7 +22,6 @@ module.exports = function(sequelize, DataTypes){
         description: {
             type: DataTypes.STRING,
             validate: {
-                notNull: true,
                 notEmpty: {
                     msg: "Each post must have a description..."
                 }
@@ -33,7 +30,6 @@ module.exports = function(sequelize, DataTypes){
         shortLink: {
             type: DataTypes.STRING,
             validate: {
-                notNull: true,
                 notEmpty: true
             }
         }
