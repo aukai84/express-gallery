@@ -16,7 +16,6 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    console.log(req.body)
     Photo.update({
         author: req.body.author,
          link: req.body.link,
