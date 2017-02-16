@@ -4,13 +4,12 @@
 <div id="photo-container"></div>
 {{#each photos}}
 <div class="photo-card">
+    <h3>{{author}} - {{link}}</h2>
     <div class="photo">
     <a href="/gallery/{{{id}}}">
         <img src="{{link}}">
         </a>
     </div>
-    <h2>author: {{author}}</h2>
-    <h3>link: {{link}}</h2>
     <h4>description: {{description}}</h2>
 </div>
 {{/each}}

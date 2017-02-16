@@ -8,7 +8,8 @@ router.post('/', (req, res) => {
     Photo.create({
         author: req.body.author,
         link: req.body.link,
-        description: req.body.description
+        description: req.body.description,
+        shortLink: req.body.link.replace(/^https?:\/\//,'')
     })
     .then((photo) => {
         res.redirect(303, '/');
