@@ -21,8 +21,6 @@ router.post('/', (req, res) => {
         res.redirect(303, '/');
     })
     .catch(error => {
-        // console.log(err.errors[0].message);
-        console.log(error.errors[0].message)
         displayError(req, res, error);
         res.redirect(303, '/gallery/new');
     });
@@ -41,6 +39,10 @@ router.put('/:id', (req, res) => {
         })
     .then(result => {
         res.redirect(303, `/gallery/${req.params.id}`);
+    })
+    .catch(error => {
+        displayError(req, res, error);
+        res.redirect(303, `/gallery/${req.params.id}/edit`);
     });
 });
 
@@ -52,6 +54,9 @@ router.delete('/:id', (req, res) => {
     })
     .then(result => {
         res.redirect(303, '/');
+    })
+    .catch(error => {
+        console.log(error);
     });
 });
 

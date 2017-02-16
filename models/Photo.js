@@ -30,7 +30,9 @@ module.exports = function(sequelize, DataTypes){
         shortLink: {
             type: DataTypes.STRING,
             validate: {
-                notEmpty: true
+                notEmpty: {
+                    msg: "Please edit link again..."
+                }
             }
         }
     });
