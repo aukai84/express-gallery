@@ -59,8 +59,10 @@ passport.use(new LocalStrategy(
     console.log('username, password: ', username, password);
     // check if the user is authenticated or not
     User.findOne({
-        where:
-            {username: username}
+        where: {
+            username: username,
+            password: password
+        }
         })
     .then((user) => {
         return done(null, user);
