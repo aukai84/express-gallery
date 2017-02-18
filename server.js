@@ -109,7 +109,7 @@ app.use('/login', passport.authenticate('local', {
     successRedirect: '/secret',
     failureRedirect: '/login'
 }));
-app.use('/gallery', gallery);
+app.use('/gallery', isAuthenticated, gallery);
 app.use('/secret', isAuthenticated, secret);
 app.use('/create', create);
 
