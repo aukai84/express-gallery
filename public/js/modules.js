@@ -3,6 +3,7 @@ function isAuthenticated(req, res, next) {
         next();
     } else {
         console.log('NOPE BRAH');
+        req.flash("error", "You do not have access.. please log in...");
         res.redirect('/login');
     }
 }

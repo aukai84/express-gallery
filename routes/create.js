@@ -5,7 +5,7 @@ let db = require('../models');
 let User = db.User;
 
 router.get('/', (req, res) => {
-    res.render('./partials/create');
+    res.render('./partials/create', {messages: res.locals.messages()});
 });
 
 router.post('/', (req, res) => {

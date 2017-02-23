@@ -79,7 +79,8 @@ passport.deserializeUser(function(user, done) {
 app.use('/login', login);
 app.use('/login', passport.authenticate('local', {
     successRedirect: '/gallery/new',
-    failureRedirect: '/login'
+    failureRedirect: '/create',
+    failureFlash: "Can't find user... Please try again!"
 }));
 app.use('/logout', logout);
 app.use('/gallery', gallery);
