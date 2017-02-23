@@ -80,7 +80,8 @@ app.use('/login', login);
 app.use('/login', passport.authenticate('local', {
     successRedirect: '/gallery/new',
     failureRedirect: '/create',
-    failureFlash: "Can't find user... Please try again!"
+    failureFlash: "Can't find user... Please try again!",
+    successFlash: "Successfully logged in!"
 }));
 app.use('/logout', logout);
 app.use('/gallery', gallery);
