@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes){
     let User = sequelize.define("User", {
         username: {
             type: DataTypes.STRING,
-            validte: {
+            validate: {
                 notEmpty: {
                     msg: "username must exist"
                 }
@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes){
         },
         password: {
             type: DataTypes.STRING,
-            validte: {
+            validate: {
                 notEmpty: {
                     msg: "password must exist"
                 }

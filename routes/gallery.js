@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express('router');
+const isAuthenticated = require('../public/js/modules.js').isAuthenticated;
 
 let db = require('../models');
 let Photo = db.Photo;
@@ -10,7 +11,7 @@ function displayError(req, res, error) {
     }
 }
 
-router.post('/', (req, res) => {
+router.post('/', isAuthenticated, (req, res) => {
     Photo.create({
         author: req.body.author,
         link: req.body.link,
@@ -26,7 +27,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', isAuthenticated, (req, res) => {
     Photo.update({
         author: req.body.author,
          link: req.body.link,
@@ -46,7 +47,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', isAuthenticated, (req, res) => {
     Photo.destroy({
         where: {
             id: req.params.id
@@ -60,7 +61,7 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-router.get('/new', (req, res) => {
+router.get('/new', isAuthenticated, (req, res) => {
     res.render('./partials/new-photo', {messages: res.locals.messages()});
 });
 
@@ -71,7 +72,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', isAuthenticated, (req, res) => {
     Photo.findById(req.params.id)
     .then((photo) => {
         res.render('./partials/edit-photo', {photo, messages: res.locals.messages()});

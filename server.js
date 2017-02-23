@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
+const isAuthenticated = require('./public/js/modules.js').isAuthenticated;
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const handlebars = require('express-handlebars');
 const gallery = require('./routes/gallery.js');
 const create = require('./routes/create.js');
 const login = require('./routes/login.js');
+const logout = require('./routes/logout.js');
 const secret = require('./routes/secret.js');
 const methodOverride = require('method-override');
 const passport = require('passport');
@@ -79,18 +81,10 @@ app.use('/login', passport.authenticate('local', {
     successRedirect: '/gallery/new',
     failureRedirect: '/login'
 }));
-app.use('/gallery', isAuthenticated, gallery);
+app.use('/logout', logout);
+app.use('/gallery', gallery);
 app.use('/secret', isAuthenticated, secret);
 app.use('/create', create);
-
-function isAuthenticated(req, res, next) {
-    if(req.isAuthenticated()){
-        next();
-    } else {
-        console.log('NOPE BRAH');
-        res.redirect('/login');
-    }
-}
 
 app.get('/', (req, res) => {
     Photo.findAll({order: "id"})
