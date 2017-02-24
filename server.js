@@ -66,15 +66,11 @@ passport.use(new LocalStrategy(
     });
   }
 ));
-
 passport.serializeUser(function(user, done) {
   return done(null, user);
 });
-
 passport.deserializeUser(function(user, done) {
-  // User.findById(id, function(err, user) {
     return done(null, user);
-  // });
 });
 app.use('/login', login);
 app.use('/login', passport.authenticate('local', {
@@ -87,7 +83,6 @@ app.use('/logout', logout);
 app.use('/gallery', gallery);
 app.use('/secret', isAuthenticated, secret);
 app.use('/create', create);
-
 app.get('/', (req, res) => {
     Photo.findAll({order: "id"})
     .then((photos) => {

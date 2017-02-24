@@ -57,7 +57,8 @@ router.delete('/:id', isAuthenticated, (req, res) => {
         res.redirect(303, '/');
     })
     .catch(error => {
-        console.log(error);
+        req.flash("error", "Can't delete message...");
+        res.redirect(303, '/');
     });
 });
 
