@@ -58,9 +58,18 @@ passport.use(new LocalStrategy(
         }
     })
     .then((user) => {
-        bcrypt.compare(password, user.password, function(err, res){
-            return done(null, user);
-        });
+        if(user === null){
+            return done(null, false, {message: "bad username"});
+        } else {
+            bcrypt.compare(password, user.password, function(err, res){
+                if(res){
+                  return done(null, user);
+                } else {
+                    return done(null, false, {message: 'bad password'});
+                }
+             });
+        }
+
     })
     .catch(err => {
         return done(err);
