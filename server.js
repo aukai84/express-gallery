@@ -11,6 +11,7 @@ const login = require('./routes/login.js');
 const logout = require('./routes/logout.js');
 const secret = require('./routes/secret.js');
 const methodOverride = require('method-override');
+const bcrypt = require('bcrypt');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const CONFIG = require('./config/config.json');
@@ -54,11 +55,12 @@ passport.use(new LocalStrategy(
     User.findOne({
         where: {
             username: username,
-            password: password
         }
-        })
+    })
     .then((user) => {
-        return done(null, user);
+        bcrypt.compare(password, user.password, function(err, res){
+            return done(null, user);
+        });
     })
     .catch(err => {
         return done(err);

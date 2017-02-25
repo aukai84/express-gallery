@@ -65,7 +65,7 @@ table {
   border-spacing: 0; }
 
 body {
-  padidng: 1vw;
+  padidng: 4vw;
   font-family: 'Arial', sans-serif;
   color: #a6a6a6; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
@@ -76,6 +76,9 @@ a {
   color: inherit;
   cursor: pointer;
   text-decoration: none; }
+
+#page-container {
+  padding: 30px; }
 
 #header {
   display: flex;

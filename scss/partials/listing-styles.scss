@@ -1,5 +1,5 @@
 body {
-    padidng: 1vw;
+    padidng: 4vw;
     font-family: 'Arial', sans-serif;
     color: #a6a6a6;
     @include respond-to(large){
@@ -13,6 +13,10 @@ a {
     text-decoration: none;
 }
 
+#page-container {
+    padding: 30px;
+}
+
 #header {
     display: flex;
     flex-flow: row wrap;
@@ -24,8 +28,8 @@ a {
     @include respond-to(large){
         border-top: dotted 1px lightgrey;
         align-items: center;
-    }
 }
+    }
 
 #logo {
     width: 100%;
