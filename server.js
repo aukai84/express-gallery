@@ -85,7 +85,7 @@ app.get('/', (req, res) => {
         } else {
             username = null;
         }
-        res.render('index', {photos, username});
+        res.render('index', {photos, username, messages: res.locals.messages()});
     });
 });
 

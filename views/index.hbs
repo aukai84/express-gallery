@@ -18,17 +18,18 @@
         <input type="submit" name="login-button" value="Sign In">
     </form>
     {{/if}}
-</div>
-<div id="photo-container"></div>
-{{#each photos}}
-<div class="photo-card">
-    <h3>{{author}} - {{shortLink}}</h2>
-    <div class="photo">
-    <a href="/gallery/{{{id}}}">
-        <img src="{{link}}">
-        </a>
+    {{{messages}}}
+
+    <div id="photo-container">
+        {{#each photos}}
+        <div class="gallery-container">
+            <div class="photo-card">
+                <a href="/gallery/{{{id}}}">
+                    <img src="{{link}}" class="image-box">
+                 </a>
+            </div>
+        </div>
+        {{/each}}
     </div>
-    <h4>description: {{description}}</h2>
-</div>
-{{/each}}
+    </div>
 </div>

@@ -61,7 +61,7 @@ router.get('/new', isAuthenticated, (req, res) => {
     res.render('./partials/new-photo', {messages: res.locals.messages()});
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', isAuthenticated, (req, res) => {
     Photo.findById(req.params.id)
     .then((photo) => {
         res.render('./partials/photo', {photo, messages: res.locals.messages()});

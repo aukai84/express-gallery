@@ -4,7 +4,7 @@ const router = express('router');
 router.get('/', (req, res) => {
     req.logout();
     req.flash("message", "Successfully logged out..");
-    res.redirect(303, '/login');
+    res.redirect(303, '/');
 });
 
 
