@@ -20,16 +20,16 @@
     {{/if}}
     {{{messages}}}
 
-    <div id="photo-container">
+    <div id="gallery-container">
+
         {{#each photos}}
-        <div class="gallery-container">
-            <div class="photo-card">
-                <a href="/gallery/{{{id}}}">
-                    <img src="{{link}}" class="image-box">
-                 </a>
-            </div>
+        <div class="photo-card">
+            <div class="list-top-information">{{author}} - {{description}}</div>
+            <a href="/gallery/{{{id}}}">
+                <img src="{{link}}" class="image-box">
+             </a>
+             <div class="list-bottom-information">{{shortLink}}</div>
         </div>
         {{/each}}
-    </div>
     </div>
 </div>

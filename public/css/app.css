@@ -122,8 +122,10 @@ a {
   margin-bottom: 25px; }
 
 #gallery-container {
-  display: flex;
   width: 100%; }
+
+.photo-card {
+  margin: 10px; }
 
 .image-box {
   width: 100%; }
