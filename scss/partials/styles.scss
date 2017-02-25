@@ -36,7 +36,7 @@ a {
     color: #68636A;
 
     @include respond-to(large){
-        width: 100%;
+        width: 70%;
         flex-grow: 1;
         margin-right: -4rem;
     }
@@ -55,4 +55,11 @@ a {
         font-size: 1rem;
         color: lightgrey;
     }
+}
+
+#sign-in {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    margin-bottom: 25px;
 }

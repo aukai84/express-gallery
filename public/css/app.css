@@ -98,7 +98,7 @@ a {
   color: #68636A; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     #logo {
-      width: calc(70% - 2rem);
+      width: 70%;
       flex-grow: 1;
       margin-right: -4rem; } }
 
@@ -114,6 +114,12 @@ a {
       font-family: 'Arial', sans-serif;
       font-size: 1rem;
       color: lightgrey; } }
+
+#sign-in {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  margin-bottom: 25px; }
 
 * {
   box-sizing: border-box; }

@@ -4,13 +4,16 @@
     <div id="user-welcome">
         Welcome <span>{{username}}</span>
     </div>
-    <form action="/logout" method="GET">
-        <input type="submit" name="logout-button" value="Sign Out">
-    </form>
     <form action="/gallery/new" method="GET">
         <input type="submit" name="new" value="Create new post">
     </form>
+    <form action="/logout" method="GET">
+        <input type="submit" name="logout-button" value="Sign Out">
+    </form>
     {{else}}
+    <div id="new-welcome">
+        <span>Welcome! Please sign in!</span>
+    </div>
     <form action="/login" method="GET">
         <input type="submit" name="login-button" value="Sign In">
     </form>
