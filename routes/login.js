@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', passport.authenticate('local', {
-    successRedirect: '/gallery/new',
+    successRedirect: '/',
     failureRedirect: '/create',
     failureFlash: "Can't find user... Please try again!",
     successFlash: "Successfully logged in!"

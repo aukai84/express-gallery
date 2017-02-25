@@ -79,7 +79,13 @@ app.use('/create', create);
 app.get('/', (req, res) => {
     Photo.findAll({order: "id"})
     .then((photos) => {
-        res.render('index', {photos: photos});
+        let username;
+        if(req.user){
+            username = req.user.username;
+        } else {
+            username = null;
+        }
+        res.render('index', {photos, username});
     });
 });
 

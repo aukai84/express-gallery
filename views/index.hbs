@@ -1,12 +1,20 @@
 
-<div id="new-container">
-    <form action="/gallery/new" method="GET">
-        <input type="submit" name="new-button" value="New">
-        <input type="submit" name="login-button" value="Sign In" formaction="/login" formmethod="GET">
-    </form>
+<div id="sign-in">
+    {{#if username}}
+    <div id="user-welcome">
+        Welcome <span>{{username}}</span>
+    </div>
     <form action="/logout" method="GET">
         <input type="submit" name="logout-button" value="Sign Out">
     </form>
+    <form action="/gallery/new" method="GET">
+        <input type="submit" name="new" value="Create new post">
+    </form>
+    {{else}}
+    <form action="/login" method="GET">
+        <input type="submit" name="login-button" value="Sign In">
+    </form>
+    {{/if}}
 </div>
 <div id="photo-container"></div>
 {{#each photos}}

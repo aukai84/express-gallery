@@ -3,8 +3,14 @@
     <input type="password" name="password" placeholder="password">
     <input type="submit" value="Submit">
 </form>
-<form action="/create" method="GET">
-    <input type="submit" value="Create new user">
-</form>
+<div id="login-buttons">
+    <form action="/create" method="GET">
+        <input type="submit" value="Create new user">
+    </form>
+    <form action="/" method="GET">
+        <input type="submit" value="Gallery">
+    </form>
+</div>
+
 {{{messages}}}
 

@@ -14,8 +14,7 @@ function displayError(req, res, error) {
     }
 }
 
-
 module.exports = {
     isAuthenticated,
-    displayError
+    displayError,
 };
