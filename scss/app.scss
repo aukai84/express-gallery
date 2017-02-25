@@ -1,19 +1,15 @@
 
+@import "./partials/clearfix.scss";
+@import "./partials/reset.scss";
+@import "./partials/media-query.scss";
+@import "./partials/styles.scss";
 
 
 * {
     box-sizing: border-box;
 }
 
-#top-logo {
-    display: flex;
-    font-family: sans-serif;
-    font-size: 100px;
-    font-style: dotted;
-    color: gray;
-    border-style: dotted;
-    border-color: gray;
-}
+
 
 
 

@@ -1,0 +1,58 @@
+body {
+    padidng: 1vw;
+    @include respond-to(large){
+        padding: 4vw;
+    }
+}
+
+a {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#header {
+    display: flex;
+    flex-flow: row wrap;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 6rem;
+
+    @include respond-to(large){
+        border-top: dotted 1px lightgrey;
+        align-items: center;
+    }
+}
+
+#logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 7.5vw;
+    font-weight: bold;
+    color: #68636A;
+
+    @include respond-to(large){
+        width: 100%;
+        flex-grow: 1;
+        margin-right: -4rem;
+    }
+}
+
+#paragraph {
+    display: none;
+
+    @include respond-to(large){
+        display: initial;
+        width: 30%;
+        border-left: solid 1px #ccc;
+        border-size: border-box;
+        padding-left: 1rem;
+        font-family: 'Arial', sans-serif;
+        font-size: 1rem;
+        color: lightgrey;
+    }
+}

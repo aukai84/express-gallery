@@ -8,9 +8,14 @@ function isAuthenticated(req, res, next) {
     }
 }
 
-
+function displayError(req, res, error) {
+    for(let i = 0; i < error.errors.length; i++){
+        req.flash("error", error.errors[i].message);
+    }
+}
 
 
 module.exports = {
-    isAuthenticated
+    isAuthenticated,
+    displayError
 };

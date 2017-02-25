@@ -1,15 +1,10 @@
 const express = require('express');
 const router = express('router');
 const isAuthenticated = require('../public/js/modules.js').isAuthenticated;
+const displayError = require('../public/js/modules.js').displayError;
 
 let db = require('../models');
 let Photo = db.Photo;
-
-function displayError(req, res, error) {
-    for(let i = 0; i < error.errors.length; i++){
-        req.flash("error", error.errors[i].message);
-    }
-}
 
 router.post('/', isAuthenticated, (req, res) => {
     Photo.create({
@@ -74,6 +69,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.get('/:id/edit', isAuthenticated, (req, res) => {
+    console.log(req.user);
     Photo.findById(req.params.id)
     .then((photo) => {
         res.render('./partials/edit-photo', {photo, messages: res.locals.messages()});

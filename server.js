@@ -51,7 +51,6 @@ app.use(passport.session());
 passport.use(new LocalStrategy(
   function (username, password, done) {
     console.log('username, password: ', username, password);
-    // check if the user is authenticated or not
     User.findOne({
         where: {
             username: username,
@@ -73,13 +72,7 @@ passport.deserializeUser(function(user, done) {
     return done(null, user);
 });
 app.use('/login', login);
-app.use('/login', passport.authenticate('local', {
-    successRedirect: '/gallery/new',
-    failureRedirect: '/create',
-    failureFlash: "Can't find user... Please try again!",
-    successFlash: "Successfully logged in!"
-}));
-app.use('/logout', logout);
+app.use('/logout', isAuthenticated, logout);
 app.use('/gallery', gallery);
 app.use('/secret', isAuthenticated, secret);
 app.use('/create', create);
