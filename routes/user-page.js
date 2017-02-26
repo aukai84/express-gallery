@@ -10,6 +10,10 @@ let User = db.User;
 router.get('/', (req, res) => {
     Photo.findAll({
         order: "id",
+        include: {
+            model: User,
+            as: 'user'
+        },
         where: {
             posted_by: req.user.id
         }

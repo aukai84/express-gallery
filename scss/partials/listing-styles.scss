@@ -73,7 +73,6 @@ a {
 
 #user-welcome {
     display: inline-block;
-    position: fixed;
     width: 100%;
 }
 
@@ -82,7 +81,8 @@ a {
     flex-flow: row wrap;
     justify-content: center;
     width: 100%;
-
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 #user-buttons {
@@ -95,12 +95,26 @@ a {
 #gallery-container {
     margin-top: 6rem;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    flex-flow: row wrap;
+    text-align: left;
 
 }
 
 .photo-card {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    @include respond-to(large){
+        height: 30%;
+        width: 30%;
+    }
+    width: 100%;
+
+}
+
+.photo-card:first-child {
+    height: 100%;
+    width: 100%;
 }
 
 .image-box {

@@ -9,11 +9,14 @@
             <form action="/gallery/new" method="GET">
                 <input type="submit" name="new" value="New Post">
             </form>
+            <form action="/user-page" method="GET">
+                <input type="submit" name="user-home-button" value="My Gallery">
+            </form>
             <form action="/logout" method="GET">
                 <input type="submit" name="logout-button" value="Sign Out">
             </form>
-            <form action="/user-page" method="GET">
-                <input type="submit" name="user-home-button" value="My Gallery">
+            <form action="/" method="GET">
+                <input type="submit" name="gallery-button" value="Gallery">
             </form>
          </div>
 
@@ -34,6 +37,8 @@
 
 
     {{/if}}
+
+
     {{{messages}}}
 
     <div id="gallery-container">
