@@ -71,6 +71,27 @@ a {
     margin-bottom: 25px;
 }
 
+#user-welcome {
+    display: inline-block;
+    position: fixed;
+    width: 100%;
+}
+
+#username-logo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+
+}
+
+#user-buttons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+}
+
 #gallery-container {
     margin-top: 6rem;
     width: 100%;
