@@ -34,6 +34,16 @@ module.exports = function(sequelize, DataTypes){
                     msg: "Please edit link again..."
                 }
             }
+        },
+        posted_by: DataTypes.INTEGER
+    }, {
+        classMethods: {
+            associate: function(models) {
+                Photo.belongsTo(models.User, {
+                    foreignKey: 'posted_by',
+                    as: 'user'
+                });
+            }
         }
     });
     return Photo;

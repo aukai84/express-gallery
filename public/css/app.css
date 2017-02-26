@@ -78,7 +78,7 @@ a {
   text-decoration: none; }
 
 #page-container {
-  padding: 30px; }
+  padding: 10px 30px 30px 30px; }
 
 #header {
   display: flex;
@@ -137,6 +137,10 @@ a {
 
 .image-box {
   width: 100%; }
+
+#new-welcome {
+  display: flex;
+  flex-flow: column; }
 
 * {
   box-sizing: border-box; }

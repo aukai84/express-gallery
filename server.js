@@ -35,10 +35,10 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
-app.use(cookieParser('keyboard cat'));
+app.use(cookieParser('2813308004'));
 app.use(session({
     store: new RedisStore(),
-    secret: 'keyboard cat'
+    secret: '2813308004'
 }));
 app.use(flash());
 app.use(function (req, res, next) {
@@ -88,7 +88,12 @@ app.use('/gallery', gallery);
 app.use('/secret', isAuthenticated, secret);
 app.use('/create', create);
 app.get('/', (req, res) => {
-    Photo.findAll({order: "id"})
+    Photo.findAll({
+        order: "id",
+        include: {
+            model: User,
+            as: 'user'
+    }})
     .then((photos) => {
         let username;
         if(req.user){

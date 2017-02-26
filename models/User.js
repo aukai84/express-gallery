@@ -15,7 +15,19 @@ module.exports = function(sequelize, DataTypes){
                     msg: "password must exist"
                 }
             }
+        },
+        age: {
+            type: DataTypes.INTEGER,
+        }
+    }, {
+        classMethods: {
+            associate: function(models) {
+                User.hasMany(models.Photo, {
+                    foreignKey: 'posted_by'
+                });
+            }
         }
     });
     return User;
 };
+
