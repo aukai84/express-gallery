@@ -10,17 +10,13 @@ let User = db.User;
 router.get('/', (req, res) => {
     Photo.findAll({
         order: "id",
-        include: {
-            model: User,
-            as: 'user'
-        },
         where: {
-            id: req.user.id
+            posted_by: req.user.id
         }
     })
     .then( photos => {
         let username = req.user.username;
-        res.render('./partials/user-page', {photos, username, messages: res.locals.messages()});
+        res.render('index', {photos, username, messages: res.locals.messages()});
     });
 });
 
