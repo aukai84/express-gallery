@@ -9,6 +9,7 @@ const gallery = require('./routes/gallery.js');
 const create = require('./routes/create.js');
 const login = require('./routes/login.js');
 const logout = require('./routes/logout.js');
+const userPage = require('./routes/user-page.js');
 const secret = require('./routes/secret.js');
 const methodOverride = require('method-override');
 const bcrypt = require('bcrypt');
@@ -84,6 +85,7 @@ passport.deserializeUser(function(user, done) {
 });
 app.use('/login', login);
 app.use('/logout', isAuthenticated, logout);
+app.use('/user-page', isAuthenticated, userPage);
 app.use('/gallery', gallery);
 app.use('/secret', isAuthenticated, secret);
 app.use('/create', create);
