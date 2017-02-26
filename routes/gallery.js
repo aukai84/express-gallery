@@ -11,7 +11,8 @@ router.post('/', isAuthenticated, (req, res) => {
         author: req.body.author,
         link: req.body.link,
         description: req.body.description,
-        shortLink: req.body.link.replace(/^https?:\/\//,'')
+        shortLink: req.body.link.replace(/^https?:\/\//,''),
+        posted_by: req.user.id
     })
     .then((photo) => {
         res.redirect(303, '/');

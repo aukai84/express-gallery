@@ -95,6 +95,7 @@ app.get('/', (req, res) => {
             as: 'user'
     }})
     .then((photos) => {
+        console.log(photos);
         let username;
         if(req.user){
             username = req.user.username;
