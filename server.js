@@ -93,10 +93,10 @@ app.get('/', (req, res) => {
         include: {
             model: User,
             as: 'user'
-    }})
+        }
+    })
     .then((photos) => {
-        console.log(photos);
-        let username;
+         let username;
         if(req.user){
             username = req.user.username;
         } else {

@@ -70,10 +70,14 @@ router.get('/:id', isAuthenticated, (req, res) => {
 });
 
 router.get('/:id/edit', isAuthenticated, (req, res) => {
-    console.log(req.user);
     Photo.findById(req.params.id)
     .then((photo) => {
-        res.render('./partials/edit-photo', {photo, messages: res.locals.messages()});
+        if(req.user.id === photo.id){
+            res.render('./partials/edit-photo', {photo, messages: res.locals.messages()});
+        } else {
+            req.flash("error", "You can only edit your own photos...");
+            res.redirect(303, '/');
+        }
     });
 });
 
