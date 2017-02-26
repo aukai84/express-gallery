@@ -21,26 +21,26 @@
          </div>
 
     </div>
-
     {{else}}
-    <div id="new-welcome">
-        <span>Welcome!</span>
-        <div id='sign-in-up'>
-        <form action="/login" method="GET">
-            <input type="submit" name="login-button" value="Sign In">
-        </form>
-        <form action="/create" method="GET">
-            <input type="submit" name="sign-up-button" value="Sign Up">
-        </form>
+    <div id="user-welcome">
+        <div id="username-logo">
+            <span>Welcome!</span>
+        </div>
+        <div id='user-buttons'>
+            <form action="/login" method="GET">
+                <input type="submit" name="login-button" value="Sign In">
+            </form>
+            <form action="/create" method="GET">
+                <input type="submit" name="sign-up-button" value="Sign Up">
+            </form>
+        </div>
     </div>
-    </div>
-
-
     {{/if}}
 
 
-    {{{messages}}}
-
+<div class="flash-messages">
+            {{{messages}}}
+        </div>
     <div id="gallery-container">
 
         {{#each photos}}

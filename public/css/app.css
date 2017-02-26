@@ -163,7 +163,8 @@ a {
 
 .photo-card:first-child {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  overflow: hidden; }
 
 .image-box {
   width: 100%; }
