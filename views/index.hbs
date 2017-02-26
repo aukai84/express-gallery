@@ -45,11 +45,11 @@
 
         {{#each photos}}
         <div class="photo-card">
-            <div class="list-top-information">{{author}} - {{description}}</div>
+            <h3>{{author}} - {{description}}</h3>
             <a href="/gallery/{{{id}}}">
                 <img src="{{link}}" class="image-box">
              </a>
-             <div class="list-bottom-information">{{shortLink}} <br>Posted By - {{user.username}}</div>
+            <h3>{{shortLink}} Post By - {{user.username}}</h3>
         </div>
         {{/each}}
     </div>

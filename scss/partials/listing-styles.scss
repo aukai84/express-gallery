@@ -116,6 +116,11 @@ a {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    h3 {
+        display: none;
+    }
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .image-box {
