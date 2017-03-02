@@ -65,7 +65,17 @@ router.get('/new', isAuthenticated, (req, res) => {
 router.get('/:id', isAuthenticated, (req, res) => {
     Photo.findById(req.params.id)
     .then((photo) => {
-        res.render('./partials/photo', {photo, messages: res.locals.messages()});
+        Photo.findAll({
+            where: {
+                id: {
+                    $ne: req.params.id
+                }
+            }
+        })
+        .then(photos => {
+            res.render('./partials/photo', {photo, photos,  messages: res.locals.messages()});
+
+        });
     });
 });
 

@@ -1,22 +1,30 @@
-
-<div id="list-left">
+<div id="detailed-page">
+    <div id="list-left">
     <div id="list-card-left">
         <img src="{{photo.link}}">
         <h1>{{photo.author}}<h1>
         <h2>{{photo.link}}<h1>
         <h3>{{photo.description}}<h1>
+        <form action="/gallery/{{photo.id}}/edit" method="GET">
+             <br><input type="submit" value="EDIT">
+        </form>
+        <form action="/" method="GET">
+            <input type="submit" name="home" value="Gallery">
+        </form>
     </div>
+
+{{{messages}}}
 </div>
 <div id="list-right">
-    <div class="list-card-right">
-
-    </div>
+   {{#each photos}}
+        <div class="list-cards-right">
+            <a href="/gallery/{{{id}}}">
+                <img src="{{link}}" class="image-box">
+             </a>
+            <h3>{{shortLink}}</h3>
+        </div>
+        {{/each}}
 </div>
 
-<form action="/gallery/{{photo.id}}/edit" method="GET">
-   <br><input type="submit" value="EDIT">
-</form>
-<form action="/" method="GET">
-    <input type="submit" name="home" value="Gallery">
-</form>
-{{{messages}}}
+
+</div>
