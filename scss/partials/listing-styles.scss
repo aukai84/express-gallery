@@ -100,10 +100,14 @@ a {
     margin-top: 6rem;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    @include respond-to(large){
+      justify-content: space-between;
+    }
+    justify-content: center;
     margin: auto;
     flex-flow: row wrap;
     text-align: left;
+    align-items: center;
 
 }
 
@@ -129,14 +133,20 @@ a {
         h3:first-child {
             display: none;
         }
+    justify-content: center;
     padding: 1rem;
     max-height: 100%;
+    object-fit: cover;
     height: 100%;
-    width: 100%;
+    width: 90%;
 
 }
 
 .photo-card:first-child {
+    @include respond-to(large){
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
     max-height: 100%;
     width: 100%;
      h3 {
@@ -144,12 +154,10 @@ a {
         }
         border-bottom: dotted 1px lightgrey;
         padding-bottom: 1rem;
-    @include respond-to(large){
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
+
     img {
         height: 100%;
+        width: 100%;
     }
 }
 

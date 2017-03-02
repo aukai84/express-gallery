@@ -153,16 +153,22 @@ a {
   margin-top: 6rem;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: auto;
   flex-flow: row wrap;
-  text-align: left; }
+  text-align: left;
+  align-items: center; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    #gallery-container {
+      justify-content: space-between; } }
 
 .photo-card {
+  justify-content: center;
   padding: 1rem;
   max-height: 100%;
+  object-fit: cover;
   height: 100%;
-  width: 100%; }
+  width: 90%; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     .photo-card {
       width: 30%;
@@ -184,14 +190,15 @@ a {
   width: 100%;
   border-bottom: dotted 1px lightgrey;
   padding-bottom: 1rem; }
-  .photo-card:first-child h3 {
-    display: none; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     .photo-card:first-child {
       margin-top: 2rem;
       margin-bottom: 1rem; } }
+  .photo-card:first-child h3 {
+    display: none; }
   .photo-card:first-child img {
-    height: 100%; }
+    height: 100%;
+    width: 100%; }
 
 .image-box {
   width: 100%;
