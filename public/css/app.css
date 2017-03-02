@@ -78,7 +78,11 @@ a {
   text-decoration: none; }
 
 #page-container {
-  padding: 10px 30px 30px 30px; }
+  padding: 15px 35px 30px 35px; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    #page-container {
+      padding-left: 55px;
+      padding-right: 55px; } }
 
 #header {
   display: flex;
@@ -86,7 +90,7 @@ a {
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-top: 2rem;
-  margin-bottom: 8rem; }
+  margin-bottom: 2rem; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     #header {
       border-top: dotted 1px lightgrey;
@@ -168,7 +172,7 @@ a {
       .photo-card h3:first-child {
         display: none; }
       .photo-card img {
-        height: 17rem; } }
+        height: 18rem; } }
 
 .photo-card:first-child {
   max-height: 100%;
@@ -180,7 +184,7 @@ a {
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     .photo-card:first-child {
       margin-top: 2rem;
-      margin-bottom: 2rem; } }
+      margin-bottom: 1rem; } }
   .photo-card:first-child img {
     height: 100%; }
 

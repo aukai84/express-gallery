@@ -14,7 +14,11 @@ a {
 }
 
 #page-container {
-    padding: 10px 30px 30px 30px;
+    padding: 15px 35px 30px 35px;
+    @include respond-to(large) {
+        padding-left: 55px;
+        padding-right: 55px;
+    }
 }
 
 #header {
@@ -23,7 +27,7 @@ a {
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin-top: 2rem;
-    margin-bottom: 8rem;
+    margin-bottom: 2rem;
 
     @include respond-to(large){
         border-top: dotted 1px lightgrey;
@@ -119,7 +123,7 @@ a {
         }
 
         img {
-            height: 17rem;
+            height: 18rem;
         }
     }
     width: 100%;
@@ -137,9 +141,8 @@ a {
     @include respond-to(large){
 
 
-         margin-top: 2rem;
-        margin-bottom: 2rem;
-
+        margin-top: 2rem;
+        margin-bottom: 1rem;
     }
     img {
         height: 100%;
