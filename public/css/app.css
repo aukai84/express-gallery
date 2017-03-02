@@ -133,14 +133,18 @@ table {
   padding-top: 5rem; }
 
 #list-left {
-  width: 70%; }
+  width: 100%;
+  padding-top: 1rem;
+  justify-content: center; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    #list-left {
+      width: 70%; } }
 
 #list-card-left {
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
   #list-card-left img {
     width: 100%;
-    height: 20rem; }
+    height: 100%; }
 
 #list-right {
   display: none; }
@@ -163,6 +167,20 @@ table {
     text-overflow: ellipsis;
     font-size: 10px;
     padding: .5rem; }
+
+.detailed-buttons {
+  border-radius: 2px;
+  height: 3rem;
+  padding: 0;
+  width: 8rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #68636A;
+  color: white; }
+
+.detailed-buttons:hover {
+  background-color: lightgrey;
+  border: none; }
 
 * {
   box-sizing: border-box; }
