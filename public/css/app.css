@@ -161,7 +161,8 @@ a {
   color: white; }
 
 .home-buttons:hover {
-  background-color: lightgrey; }
+  background-color: lightgrey;
+  border: none; }
 
 #gallery-container {
   margin-top: 6rem;
