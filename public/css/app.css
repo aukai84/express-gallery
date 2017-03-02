@@ -65,7 +65,7 @@ table {
   border-spacing: 0; }
 
 body {
-  padidng: 4vw;
+  padding: 4vw;
   font-family: 'Arial', sans-serif;
   color: #a6a6a6; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
@@ -158,22 +158,29 @@ a {
   width: 100%; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     .photo-card {
+      margin-top: none;
       width: 30%;
       height: 30%;
       object-fit: cover; }
+      .photo-card h3 {
+        overflow: hidden;
+        text-overflow: ellipsis; }
       .photo-card h3:first-child {
         display: none; }
       .photo-card img {
-        height: 15rem; } }
+        height: 17rem; } }
 
 .photo-card:first-child {
-  height: 100%;
+  max-height: 100%;
   width: 100%;
-  overflow: hidden;
-  margin-top: 2rem;
-  margin-bottom: 2rem; }
+  border-bottom: dotted 1px lightgrey;
+  padding-bottom: 1rem; }
   .photo-card:first-child h3 {
     display: none; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    .photo-card:first-child {
+      margin-top: 2rem;
+      margin-bottom: 2rem; } }
   .photo-card:first-child img {
     height: 100%; }
 

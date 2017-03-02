@@ -1,5 +1,5 @@
 body {
-    padidng: 4vw;
+    padding: 4vw;
     font-family: 'Arial', sans-serif;
     color: #a6a6a6;
     @include respond-to(large){
@@ -105,16 +105,21 @@ a {
 
 .photo-card {
     @include respond-to(large){
+        margin-top: none;
         width: 30%;
         height: 30%;
         object-fit: cover;
+        h3 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
         h3:first-child {
             display: none;
         }
 
         img {
-            height: 15rem;
+            height: 17rem;
         }
     }
     width: 100%;
@@ -122,15 +127,20 @@ a {
 }
 
 .photo-card:first-child {
-    height: 100%;
+    max-height: 100%;
     width: 100%;
-    overflow: hidden;
-    h3 {
+     h3 {
         display: none;
-    }
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+        }
+        border-bottom: dotted 1px lightgrey;
+        padding-bottom: 1rem;
+    @include respond-to(large){
 
+
+         margin-top: 2rem;
+        margin-bottom: 2rem;
+
+    }
     img {
         height: 100%;
     }
