@@ -159,20 +159,25 @@ a {
   text-align: left; }
 
 .photo-card {
+  padding: 1rem;
+  max-height: 100%;
+  height: 100%;
   width: 100%; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     .photo-card {
-      margin-top: none;
       width: 30%;
       height: 30%;
-      object-fit: cover; }
-      .photo-card h3 {
-        overflow: hidden;
-        text-overflow: ellipsis; }
-      .photo-card h3:first-child {
-        display: none; }
+      object-fit: cover;
+      border-bottom: dotted 1px lightgrey;
+      padding-bottom: 1rem; }
       .photo-card img {
-        height: 18rem; } }
+        width: 100%;
+        height: 16rem; } }
+  .photo-card h3 {
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .photo-card h3:first-child {
+    display: none; }
 
 .photo-card:first-child {
   max-height: 100%;

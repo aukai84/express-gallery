@@ -109,11 +109,19 @@ a {
 
 .photo-card {
     @include respond-to(large){
-        margin-top: none;
         width: 30%;
         height: 30%;
         object-fit: cover;
-        h3 {
+        border-bottom: dotted 1px lightgrey;
+        padding-bottom: 1rem;
+
+        img {
+            width: 100%;
+            height: 16rem;
+        }
+    }
+
+    h3 {
             overflow: hidden;
             text-overflow: ellipsis;
         }
@@ -121,11 +129,9 @@ a {
         h3:first-child {
             display: none;
         }
-
-        img {
-            height: 18rem;
-        }
-    }
+    padding: 1rem;
+    max-height: 100%;
+    height: 100%;
     width: 100%;
 
 }
@@ -139,8 +145,6 @@ a {
         border-bottom: dotted 1px lightgrey;
         padding-bottom: 1rem;
     @include respond-to(large){
-
-
         margin-top: 2rem;
         margin-bottom: 1rem;
     }
