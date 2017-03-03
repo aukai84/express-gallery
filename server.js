@@ -20,17 +20,9 @@ const RedisStore = require('connect-redis')(session);
 
 const app = express();
 
-const hbs = handlebars.create({
-  extname: '.hbs',
-  defaultLayout: 'app'
-});
-
 let db = require('./models');
 let Photo = db.Photo;
 let User = db.User;
-
-app.engine('hbs', hbs.engine);
-app.set('view engine', 'hbs');
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -83,6 +75,23 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
     return done(null, user);
 });
+const hbs = handlebars.create({
+  extname: '.hbs',
+  defaultLayout: 'app'
+});
+app.engine('hbs', hbs.engine);
+app.set('view engine', 'hbs');
+// app.use((req, res, next) => {
+//     let username;
+//     if(req.user){
+//         username = req.user.username;
+//     res.render('./partials/header', username);
+
+//     } else {
+//         username = null;
+//     }
+//     next();
+// });
 app.use('/login', login);
 app.use('/logout', isAuthenticated, logout);
 app.use('/user-page', isAuthenticated, userPage);

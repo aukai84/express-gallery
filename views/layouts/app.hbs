@@ -7,6 +7,11 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css">
 </head>
 <body>
+{{#if username}}
+    <div>logged in</div>
+{{else}}
+<div>logged out</div>
+{{/if}}
 <div id="page-container">
     <div id="header">
         <h1 id="logo">_ARCHITEKT</h1>

@@ -218,7 +218,7 @@ table {
   background-color: lightgrey;
   border: none; }
 
-#gallery-container {
+#user-gallery-container {
   margin-top: 6rem;
   width: 100%;
   display: flex;
@@ -228,7 +228,7 @@ table {
   text-align: left;
   align-items: center; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
-    #gallery-container {
+    #user-gallery-container {
       justify-content: space-between; } }
 
 .user-photo-card {
