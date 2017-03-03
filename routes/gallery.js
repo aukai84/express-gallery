@@ -86,7 +86,7 @@ router.get('/:id', isAuthenticated, (req, res) => {
 router.get('/:id/edit', isAuthenticated, (req, res) => {
     Photo.findById(req.params.id)
     .then((photo) => {
-        if(req.user.id === photo.posted_by){
+        if(req.user.id === photo.posted_by || req.user.username === "admin"){
             res.render('./partials/edit-photo', {photo, messages: res.locals.messages()});
         } else {
             req.flash("error", "You can only edit your own photos...");
