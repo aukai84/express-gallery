@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 router.post('/', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/create',
-    failureFlash: "Can't find user... Please try again!",
+    failureFlash: "Incorrect login information... Please try again!",
     successFlash: "Successfully logged in!"
 }));
 
