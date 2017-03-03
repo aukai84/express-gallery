@@ -27,7 +27,7 @@ router.get('/', isAdmin, (req, res) => {
     })
     .then( users => {
         console.log(users)
-        res.render('./partials/admin-page', {users, username: req.body.username, admin: req.body.admin});
+        res.render('./partials/admin-page', {users, username: req.body.user, admin: req.body.admin});
     });
 });
 

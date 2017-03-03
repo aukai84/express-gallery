@@ -21,9 +21,9 @@ function setUser(req, res, next) {
         } else {
             req.body.admin = null;
         }
-        req.body.username = req.user.username;
+        req.body.user = req.user.username;
     } else {
-        req.body.username= null;
+        req.body.user= null;
     }
     next();
 }

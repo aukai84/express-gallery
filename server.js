@@ -102,7 +102,7 @@ app.get('/', (req, res) => {
     })
     .then((photos) => {
 
-        res.render('index', {photos, username: req.body.username, admin: req.body.admin, messages: res.locals.messages()});
+        res.render('index', {photos, username: req.body.user, admin: req.body.admin, messages: res.locals.messages()});
     });
 });
 
