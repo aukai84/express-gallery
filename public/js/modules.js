@@ -14,7 +14,22 @@ function displayError(req, res, error) {
     }
 }
 
+function setUser(req, res, next) {
+    if(req.user){
+        if(req.user.username === "admin"){
+            req.body.admin = true;
+        } else {
+            req.body.admin = null;
+        }
+        req.body.username = req.user.username;
+    } else {
+        req.body.username= null;
+    }
+    next();
+}
+
 module.exports = {
     isAuthenticated,
     displayError,
+    setUser
 };

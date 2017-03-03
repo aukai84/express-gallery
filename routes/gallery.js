@@ -63,11 +63,10 @@ router.delete('/:id', isAuthenticated, (req, res) => {
 });
 
 router.get('/new', isAuthenticated, (req, res) => {
-    res.render('./partials/new-photo', {messages: res.locals.messages()});
+    res.render('./partials/new-photo', { username: req.body.username, admin: req.body.admin, messages: res.locals.messages()});
 });
 
 router.get('/:id', isAuthenticated, (req, res) => {
-    let username = req.user.username;
     Photo.findById(req.params.id)
     .then((photo) => {
         Photo.findAll({
@@ -78,18 +77,17 @@ router.get('/:id', isAuthenticated, (req, res) => {
             }
         })
         .then(photos => {
-            res.render('./partials/photo', {photo, photos, username, messages: res.locals.messages()});
+            res.render('./partials/photo', {photo, photos, username: req.body.username, admin: req.body.admin, messages: res.locals.messages()});
 
         });
     });
 });
 
 router.get('/:id/edit', isAuthenticated, (req, res) => {
-    let username = req.user.username;
     Photo.findById(req.params.id)
     .then((photo) => {
         if(req.user.id === photo.posted_by || req.user.username === "admin"){
-            res.render('./partials/edit-photo', {photo, username, messages: res.locals.messages()});
+            res.render('./partials/edit-photo', {photo, username: req.body.username, admin: req.body.admin, messages: res.locals.messages()});
         } else {
             req.flash("error", "You can only edit your own photos...");
             res.redirect(303, '/');

@@ -7,9 +7,15 @@
             <form action="/gallery/new" method="GET">
                 <input type="submit" name="new" value="New Post" class="home-buttons">
             </form>
+            {{#if admin}}
+                <form action='/admin' method="GET">
+                    <input type="submit" name="admin" value="Admin Page">
+                </form>
+            {{else}}
             <form action="/user-page" method="GET">
                 <input type="submit" name="user-home-button" value="My Gallery" class="home-buttons">
             </form>
+            {{/if}}
             <form action="/logout" method="GET">
                 <input type="submit" name="logout-button" value="Sign Out" class="home-buttons">
             </form>
@@ -33,11 +39,7 @@
         </div>
     </div>
     {{/if}}
-    {{#if admin}}
-        <form action='/admin' method="GET">
-            <input type="submit" name="admin" value="Admin Page">
-        </form>
-    {{/if}}
+
     <div class="flash-messages">
             {{{messages}}}
     </div>

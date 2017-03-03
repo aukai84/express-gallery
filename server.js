@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
+const setUser = require('./public/js/modules.js').setUser;
 const isAuthenticated = require('./public/js/modules.js').isAuthenticated;
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -82,18 +83,9 @@ const hbs = handlebars.create({
 });
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
-// app.use((req, res, next) => {
-//     let username;
-//     if(req.user){
-//         username = req.user.username;
-//     res.render('./partials/header', username);
 
-//     } else {
-//         username = null;
-//     }
-//     next();
-// });
 app.use('/login', login);
+app.use(setUser);
 app.use('/logout', isAuthenticated, logout);
 app.use('/user-page', isAuthenticated, userPage);
 app.use('/gallery', gallery);
@@ -109,20 +101,11 @@ app.get('/', (req, res) => {
         }
     })
     .then((photos) => {
-         let username;
-         let admin;
-        if(req.user){
-            if(req.user.username === "admin"){
-                admin = "admin";
-            } else {
-                admin = null;
-            }
-            username = req.user.username;
-        } else {
-            username = null;
-        }
-        res.render('index', {photos, username, admin, messages: res.locals.messages()});
+
+        res.render('index', {photos, username: req.body.username, admin: req.body.admin, messages: res.locals.messages()});
     });
 });
+
+
 
 module.exports = app;
