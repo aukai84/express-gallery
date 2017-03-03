@@ -10,6 +10,7 @@ const create = require('./routes/create.js');
 const login = require('./routes/login.js');
 const logout = require('./routes/logout.js');
 const userPage = require('./routes/user-page.js');
+const adminPage = require('./routes/admin-page.js');
 const secret = require('./routes/secret.js');
 const methodOverride = require('method-override');
 const bcrypt = require('bcrypt');
@@ -98,6 +99,7 @@ app.use('/user-page', isAuthenticated, userPage);
 app.use('/gallery', gallery);
 app.use('/secret', isAuthenticated, secret);
 app.use('/create', create);
+app.use('/admin', adminPage);
 app.get('/', (req, res) => {
     Photo.findAll({
         order: "id",
@@ -108,12 +110,18 @@ app.get('/', (req, res) => {
     })
     .then((photos) => {
          let username;
+         let admin;
         if(req.user){
+            if(req.user.username === "admin"){
+                admin = "admin";
+            } else {
+                admin = null;
+            }
             username = req.user.username;
         } else {
             username = null;
         }
-        res.render('index', {photos, username, messages: res.locals.messages()});
+        res.render('index', {photos, username, admin, messages: res.locals.messages()});
     });
 });
 

@@ -7,7 +7,7 @@ let db = require('../models');
 let Photo = db.Photo;
 let User = db.User;
 
-router.get('/', (req, res) => {
+router.get('/', isAuthenticated, (req, res) => {
     Photo.findAll({
         order: "id",
         include: {

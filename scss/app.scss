@@ -12,11 +12,11 @@
 }
 
 body {
-    padding: 4vw;
+    padding: none;
     font-family: 'Arial', sans-serif;
     color: #a6a6a6;
     @include respond-to(large){
-        padding: 4vw;
+        padding: none;
     }
 }
 
@@ -31,8 +31,8 @@ a {
     flex-flow: column;
     padding: 15px 35px 30px 35px;
     @include respond-to(large) {
-        padding-left: 55px;
-        padding-right: 55px;
+        padding-left: 4vw;
+        padding-right: 4vw;
     }
 }
 
@@ -42,8 +42,6 @@ a {
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin-top: 2rem;
-    margin-bottom: 2rem;
-
     @include respond-to(large){
         border-top: dotted 1px lightgrey;
         align-items: center;
@@ -105,10 +103,10 @@ a {
 }
 
 #user-buttons {
+    float: right;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    width: 100%;
 }
 
 input[type=submit] {
