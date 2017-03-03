@@ -3,19 +3,9 @@ const router = express('router');
 
 const User = require('../models').User;
 
-function isAdmin(req, res, next) {
-    if(req.user){
-        if(req.user.username === "admin"){
-            next();
-        } else {
-            res.redirect(303, '/');
-        }
-    } else {
-        res.redirect(303, '/');
-    }
-}
 
-router.get('/', isAdmin, (req, res) => {
+
+router.get('/', (req, res) => {
     let username = req.user.username;
     console.log(username);
     User.findAll({

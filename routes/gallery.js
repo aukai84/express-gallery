@@ -19,7 +19,7 @@ router.post('/', isAuthenticated, (req, res) => {
         posted_by: req.user.id
     })
     .then((photo) => {
-        res.redirect(303, '/');
+        res.redirect(303, '/user-page');
     })
     .catch(error => {
         displayError(req, res, error);
@@ -54,11 +54,11 @@ router.delete('/:id', isAuthenticated, (req, res) => {
         }
     })
     .then(result => {
-        res.redirect(303, '/');
+        res.redirect(303, '/user-page');
     })
     .catch(error => {
         req.flash("error", "Can't delete message...");
-        res.redirect(303, '/');
+        res.redirect(303, '/user-page');
     });
 });
 

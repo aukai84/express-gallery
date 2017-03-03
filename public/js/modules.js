@@ -23,13 +23,26 @@ function setUser(req, res, next) {
         }
         req.body.user = req.user.username;
     } else {
-        req.body.user= null;
+        req.body.user = null;
     }
     next();
+}
+
+function isAdmin(req, res, next) {
+    if(req.user){
+        if(req.user.username === "admin"){
+            next();
+        } else {
+            res.redirect(303, '/');
+        }
+    } else {
+        res.redirect(303, '/');
+    }
 }
 
 module.exports = {
     isAuthenticated,
     displayError,
-    setUser
+    setUser,
+    isAdmin
 };

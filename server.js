@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const setUser = require('./public/js/modules.js').setUser;
 const isAuthenticated = require('./public/js/modules.js').isAuthenticated;
+const isAdmin = require('./public/js/modules.js').isAdmin;
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const handlebars = require('express-handlebars');
@@ -91,7 +92,7 @@ app.use('/user-page', isAuthenticated, userPage);
 app.use('/gallery', gallery);
 app.use('/secret', isAuthenticated, secret);
 app.use('/create', create);
-app.use('/admin', adminPage);
+app.use('/admin', isAdmin, adminPage);
 app.get('/', (req, res) => {
     Photo.findAll({
         order: "id",
