@@ -27,6 +27,8 @@ a {
 }
 
 #page-container {
+    display: flex;
+    flex-flow: column;
     padding: 15px 35px 30px 35px;
     @include respond-to(large) {
         padding-left: 55px;

@@ -275,6 +275,8 @@ a {
   text-decoration: none; }
 
 #page-container {
+  display: flex;
+  flex-flow: column;
   padding: 15px 35px 30px 35px; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     #page-container {
