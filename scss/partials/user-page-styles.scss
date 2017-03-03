@@ -15,7 +15,7 @@
 
 .user-photo-card {
     @include respond-to(large){
-        width: 30%;
+        width: 33.333%;
         height: 30%;
         object-fit: cover;
         border-bottom: dotted 1px lightgrey;
@@ -23,7 +23,8 @@
 
         h3 {
             font-size: 20px;
-            padding: .5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         img {
