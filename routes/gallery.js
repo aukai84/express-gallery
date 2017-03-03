@@ -6,6 +6,10 @@ const displayError = require('../public/js/modules.js').displayError;
 let db = require('../models');
 let Photo = db.Photo;
 
+router.get('/', (req, res) => {
+    res.redirect(303, '/');
+});
+
 router.post('/', isAuthenticated, (req, res) => {
     Photo.create({
         author: req.body.author,

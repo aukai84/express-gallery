@@ -6,21 +6,21 @@
     </div>
     <div id="edit-forms-div">
         <form action="/gallery/{{photo.id}}?_method=PUT" method="POST">
-        Current author: <br><input type="text" name="author" value="{{photo.author}}">
+        Author: <br><input type="text" name="author" value="{{photo.author}}">
             <input type="hidden" name="link" value="{{photo.link}}">
             <input type="hidden" name="description" value="{{photo.description}}">
             <input type="submit" value="Update">
         </form>
         <form action="/gallery/{{photo.id}}?_method=PUT" method="POST">
             <input type="hidden" name="author" value="{{photo.author}}">
-            Current link: <br><input type="text" name="link" value="{{photo.link}}">
+        Link: <br><input type="text" name="link" value="{{photo.link}}">
             <input type="hidden" name="description" value="{{photo.description}}">
             <input type="submit" value="Update">
         </form>
         <form action="/gallery/{{photo.id}}?_method=PUT" method="POST">
             <input type="hidden" name="author" value="{{photo.author}}">
             <input type="hidden" name="link" value="{{photo.link}}">
-            Current description: <br><input type="text" name="description" value="{{photo.description}}">
+        Description: <br><input type="text" name="description" value="{{photo.description}}">
             <input type="submit" value="Update">
         </form>
     </div>
