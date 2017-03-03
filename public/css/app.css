@@ -218,6 +218,46 @@ table {
   background-color: lightgrey;
   border: none; }
 
+#gallery-container {
+  margin-top: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  flex-flow: row wrap;
+  text-align: left;
+  align-items: center; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    #gallery-container {
+      justify-content: space-between; } }
+
+.user-photo-card {
+  padding: 1rem;
+  max-height: 100%;
+  object-fit: cover;
+  height: 100%;
+  width: 100%; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    .user-photo-card {
+      width: 30%;
+      height: 30%;
+      object-fit: cover;
+      border-bottom: dotted 1px lightgrey;
+      padding-bottom: 1rem; }
+      .user-photo-card h3 {
+        font-size: 20px;
+        padding: .5rem; }
+      .user-photo-card img {
+        width: 100%;
+        height: 16rem; } }
+  .user-photo-card h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 10px;
+    padding: .5rem; }
+  .user-photo-card h3:first-child {
+    display: none; }
+
 * {
   box-sizing: border-box; }
 

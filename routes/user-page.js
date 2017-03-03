@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
     })
     .then( photos => {
         let username = req.user.username;
-        res.render('index', {photos, username, messages: res.locals.messages()});
+        res.render('./partials/user-page', {photos, username, messages: res.locals.messages()});
     });
 });
 
