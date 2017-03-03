@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express('router');
-const isAuthenticated = require('../public/js/modules.js').isAuthenticated;
 const displayError = require('../public/js/modules.js').displayError;
 
 let db = require('../models');
@@ -10,7 +9,7 @@ router.get('/', (req, res) => {
     res.redirect(303, '/');
 });
 
-router.post('/', isAuthenticated, (req, res) => {
+router.post('/', (req, res) => {
     Photo.create({
         author: req.body.author,
         link: req.body.link,
@@ -27,7 +26,7 @@ router.post('/', isAuthenticated, (req, res) => {
     });
 });
 
-router.put('/:id', isAuthenticated, (req, res) => {
+router.put('/:id', (req, res) => {
     Photo.update({
         author: req.body.author,
          link: req.body.link,
@@ -47,7 +46,7 @@ router.put('/:id', isAuthenticated, (req, res) => {
     });
 });
 
-router.delete('/:id', isAuthenticated, (req, res) => {
+router.delete('/:id', (req, res) => {
     Photo.destroy({
         where: {
             id: req.params.id
@@ -62,11 +61,11 @@ router.delete('/:id', isAuthenticated, (req, res) => {
     });
 });
 
-router.get('/new', isAuthenticated, (req, res) => {
+router.get('/new', (req, res) => {
     res.render('./partials/new-photo', { username: req.body.user, admin: req.body.admin, messages: res.locals.messages()});
 });
 
-router.get('/:id', isAuthenticated, (req, res) => {
+router.get('/:id', (req, res) => {
     Photo.findById(req.params.id)
     .then((photo) => {
         Photo.findAll({
@@ -83,7 +82,7 @@ router.get('/:id', isAuthenticated, (req, res) => {
     });
 });
 
-router.get('/:id/edit', isAuthenticated, (req, res) => {
+router.get('/:id/edit', (req, res) => {
     Photo.findById(req.params.id)
     .then((photo) => {
         if(req.user.id === photo.posted_by || req.user.username === "admin"){

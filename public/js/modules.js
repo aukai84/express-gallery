@@ -40,9 +40,18 @@ function isAdmin(req, res, next) {
     }
 }
 
+function authenticateUser(req, res, next) {
+    if(req.url === "/"){
+        next();
+    } else {
+        isAuthenticated(req, res, next);
+    }
+}
+
 module.exports = {
     isAuthenticated,
     displayError,
     setUser,
-    isAdmin
+    isAdmin,
+    authenticateUser
 };
