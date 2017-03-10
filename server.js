@@ -34,7 +34,8 @@ app.use(methodOverride('_method'));
 app.use(cookieParser('2813308004'));
 app.use(session({
     store: new RedisStore(),
-    secret: '2813308004'
+    secret: '2813308004',
+    cookie: {maxAge: 60000}
 }));
 app.use(flash());
 app.use(function (req, res, next) {
@@ -76,7 +77,15 @@ passport.serializeUser(function(user, done) {
   return done(null, user);
 });
 passport.deserializeUser(function(user, done) {
+    User.findOne({
+        where: {
+            id: user.id
+        }
+    })
+    .then(user => {
     return done(null, user);
+
+    });
 });
 const hbs = handlebars.create({
   extname: '.hbs',
