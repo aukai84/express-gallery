@@ -41,7 +41,8 @@ function isAdmin(req, res, next) {
 }
 
 function authenticateUser(req, res, next) {
-    if(req.url === "/"){
+    console.log(req.path)
+    if(req.path === "/" || req.path === '/create' || req.path === '/login'){
         next();
     } else {
         isAuthenticated(req, res, next);
